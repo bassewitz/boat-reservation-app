@@ -6,20 +6,24 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: sans-serif;
+    font-family: Roboto, sans-serif;
     margin: 0;
   }
 
   html, body {
-    position: fixed;
+    height:100vh;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6,
+  h1, h3, h4, h5, h6,
   ul, ol {
     margin: 0;
+  }
+  h2{
+    margin:0px;
+    font-weight: bold;
+    margin-top:20px;
+
   }
 
   input, textarea, button {
@@ -28,18 +32,19 @@ export default createGlobalStyle`
 
   input, textarea {
     appearance: none;
-    border: 4px solid #ddd;
+    border: 1px solid black;
     border-radius: none;
     background: white;
     padding-left: 4px;
   }
 
   button {
-    background: hotpink;
+    background: black;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
     color: white;
-    font-weight: bold;
-
+    font-weight: normal;
+    padding: 10px 30px;
+    margin: 280px 0 0 18px;
   }
 `

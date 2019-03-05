@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
+import BoatPicture from '../pics/boatyellow.png'
 import Booking from '../booking/Booking'
+import GlobalStyle from './GlobalStyle'
 
 const StyledHeadline = styled.div`
   display: grid;
@@ -10,13 +11,19 @@ const StyledHeadline = styled.div`
   color: white;
   text-decoration: uppercase;
   font-size: 65px;
-  background: turquoise;
-  font-family: 'Roboto', serif;
-  font-weight: bold;
+  background: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
   line-height: 1em;
   text-transform: uppercase;
+  height: 300px;
 `
 
+const StyledBackgroundimg = styled.div`
+  background-image: url(${BoatPicture});
+  width: 375px;
+  height: 408px;
+`
 /*const Styledspan = styled.span`
   font-family: 'Roboto', serif;
   font-size: 90px;
@@ -27,21 +34,20 @@ const StyledHeadline = styled.div`
 function App() {
   return (
     <React.Fragment>
-      <Booking />
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>OnWater</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <StyledHeadline>
-        Max <br />
-        Moritz & <br />
-        Mosquito
-      </StyledHeadline>
-      <button>book boat</button> }
+      <GlobalStyle />
+      <div css="padding: 10px 0 0; overflow-y: scroll">
+        <StyledHeadline>
+          Max <br />
+          Moritz & <br />
+          Mosquito
+        </StyledHeadline>
+        <StyledBackgroundimg>
+          <a href="#booking">
+            <button>Booking</button>
+          </a>
+        </StyledBackgroundimg>
+        <Booking />
+      </div>
     </React.Fragment>
   )
 }

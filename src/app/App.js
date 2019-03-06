@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import BoatPicture from '../pics/boatyellow.png'
 import Booking from '../booking/Booking'
+import Card from '../booking/Card'
 import GlobalStyle from './GlobalStyle'
 
 const StyledHeadline = styled.div`
@@ -47,6 +48,7 @@ function App() {
           </a>
         </StyledBackgroundimg>
         <Booking />
+        <Card />
       </div>
     </React.Fragment>
   )

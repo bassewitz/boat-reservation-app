@@ -16,9 +16,15 @@ export default function Booking(props) {
     line-height: 2em;
   `
   const Styledul = styled.div`
+    list-style-type: circle;
     line-height: 1.5em;
+    background: none;
+    border: black;
+    border-radius: 3px;
+    color: black;
+    font-weight: normal;
+    padding: 10px 10px;
   `
-
   const changeDate = e => {
     setBookingDate(e.target.value)
   }

@@ -1,33 +1,48 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Card from './Card'
 
 export default function Booking(props) {
   const [bookingDate, setBookingDate] = useState('')
   const [boats, setBoats] = useState([
     {
       name: 'Max',
+      boatNumber: 1,
+      content: 'Test',
       bookedDates: ['2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05'],
     },
-    { name: 'Moritz', bookedDates: '2019-03-02' },
-    { name: 'Mosquito', bookedDates: '2019-03-02' },
+    {
+      name: 'Moritz',
+      boatNumber: 2,
+      content: 'Test',
+      bookedDates: '2019-03-02',
+    },
+    {
+      name: 'Mosquito',
+      boatNumber: 3,
+      content: 'Test',
+      bookedDates: '2019-03-02',
+    },
   ])
+
   const StyledBookingSection = styled.div`
     margin: 50px 0px 50px 18px;
     line-height: 2em;
   `
-  const Styledul = styled.div`
-    list-style-type: circle;
-    line-height: 1.5em;
-    background: none;
-    border: black;
-    border-radius: 3px;
-    color: black;
-    font-weight: normal;
-    padding: 10px 10px;
-  `
+
   const changeDate = e => {
     setBookingDate(e.target.value)
   }
+
+  const Styledul = styled.div`
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    background: none;
+  `
 
   return (
     <StyledBookingSection id="booking">
@@ -40,7 +55,14 @@ export default function Booking(props) {
             {boats
               .filter(boat => !boat.bookedDates.includes(bookingDate))
               .map(boat => {
-                return <li key={boat.name}>{boat.name}</li>
+                return (
+                  <Card
+                    key={boat.name}
+                    name={boat.name}
+                    boatNumber={boat.boatNumber}
+                    content={boat.content}
+                  />
+                )
               })}
           </Styledul>
         </div>

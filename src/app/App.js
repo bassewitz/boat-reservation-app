@@ -18,18 +18,18 @@ const StyledHeadline = styled.div`
   text-transform: uppercase;
   height: 300px;
 `
-
 const StyledBackgroundimg = styled.div`
   background-image: url(${BoatPicture});
   width: 375px;
   height: 408px;
 `
-/*const Styledspan = styled.span`
-  font-family: 'Roboto', serif;
-  font-size: 90px;
-  font-weight: bold;
-  line-height: 1em; 
-`*/
+const StyledForm = styled.form`
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: normal;
+  margin-left: 18px;
+  grid-gap: 10px;
+`
 
 function App() {
   return (
@@ -47,6 +47,15 @@ function App() {
           </a>
         </StyledBackgroundimg>
         <Booking />
+        <StyledForm>
+          <label>
+            Name:
+            <br />
+            <input placeholder="name" type="text" name="name" />
+          </label>
+          <br />
+          <input type="submit" value="Buchen" />
+        </StyledForm>
       </div>
     </React.Fragment>
   )

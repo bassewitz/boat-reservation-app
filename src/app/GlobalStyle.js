@@ -19,9 +19,24 @@ export default createGlobalStyle`
   ul, ol {
     margin: 0;
   }
+  h4{
+    font-weight: normal; 
+    letter-spacing: 2px;
+    color: white;
+  }
+
+  h3{
+    font-weight: normal; 
+  }
+  
+  p{
+    color:black;
+    font-size:14px;
+  }
+
   h2{
     margin:0px;
-    font-weight: bold;
+    font-weight: normal;
     margin-top:20px;
 
   }
@@ -32,7 +47,7 @@ export default createGlobalStyle`
 
   input, textarea {
     appearance: none;
-    border: 1px solid black;
+    border: 4px solid #ddd;
     border-radius: none;
     background: white;
     padding-left: 4px;

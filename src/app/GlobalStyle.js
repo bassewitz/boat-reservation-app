@@ -1,18 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-  * {
-    box-sizing: border-box;
-  }
+ 
 
   body {
     font-family: Roboto, sans-serif;
     margin: 0;
+
   }
 
   html, body {
-    height:100vh;
-    width: 100%;
+    margin: 0;
   }
 
   h1, h3, h4, h5, h6,
@@ -25,8 +23,11 @@ export default createGlobalStyle`
     color: white;
   }
 
-  h3{
+  h3,label {
     font-weight: normal; 
+    color: turquoise;
+    font-size: 15px;
+    margin: 20px 0 -10px 0;
   }
   
   p{
@@ -35,15 +36,10 @@ export default createGlobalStyle`
   }
 
   h2{
-    margin:0px;
-    font-weight: normal;
-    margin-top:20px;
-
+ 
   }
 
-  input, textarea, button {
-    font-size: 1em;
-  }
+  
 
   input, textarea {
     appearance: none;
@@ -54,12 +50,25 @@ export default createGlobalStyle`
   }
 
   button {
-    background: black;
+    background: white;
     border: none;
-    border-radius: 3px;
-    color: white;
+    border-radius: 2px;
+    color: turquoise;
     font-weight: normal;
-    padding: 10px 30px;
-    margin: 280px 0 0 18px;
+    font-size: 15px;
+    padding: 5px 20px;
+    margin: -80px 0 0px 240px;
+    position: absolute;
+  
+  }
+
+
+  input {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: none;
+    background: white;
+    padding-left: 4px;
+  
   }
 `

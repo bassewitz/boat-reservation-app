@@ -52,6 +52,20 @@ export default function Booking(props) {
     -webkit-overflow-scrolling: touch;
     background: none;
   `
+
+  const StyledInputDate = styled.input`
+    appearance: none;
+    border: 1px solid #ddd;
+    border-radius: none;
+    background: white;
+    padding: 4px 10px 4px 5px;
+    margin: 5px 0 0 0;
+    font-family: roboto;
+    color: dimgrey;
+    font-size: 12px;
+    font-weight: bolder;
+  `
+
   function onSelection(boat) {
     const index = boats.indexOf(boat)
     setBoats([
@@ -65,7 +79,7 @@ export default function Booking(props) {
   return (
     <StyledBookingSection id="booking">
       <h3>Wähle ein Datum:</h3>
-      <input type="date" value={bookingDate} onChange={changeDate} />
+      <StyledInputDate type="date" value={bookingDate} onChange={changeDate} />
       {bookingDate ? (
         <div>
           <h3>Folgende Boote sind verfügbar:</h3>

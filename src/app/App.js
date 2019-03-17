@@ -10,7 +10,7 @@ const StyledHeadline = styled.div`
   padding: 0px 0px 0px 20px;
   color: white;
   text-decoration: uppercase;
-  font-size: 65px;
+  font-size: 62px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   line-height: 0.9em;
@@ -26,10 +26,8 @@ const StyledBackgroundimg = styled.div`
 `
 const StyledForm = styled.form`
   font-family: 'Roboto';
-  font-size: 15px;
   font-weight: normal;
-  margin-left: 18px;
-  grid-gap: 10px;
+  margin-left: 20px ;
 `
 
 const StyledInputBuchen = styled.input`
@@ -40,9 +38,9 @@ const StyledInputBuchen = styled.input`
   color: white;
   border-radius: 0px;
   font-weight: normal;
-  font-size: 15px;
-  padding: 5px 147px;
-  margin: 10px 0 0 0;
+  font-size: 13px;
+  padding: 5px 145px;
+  margin: 30px  0 150px 0;
 `
 
 const StyledInputName = styled.input`
@@ -50,7 +48,7 @@ const StyledInputName = styled.input`
   border: 1px solid #ddd;
   border-radius: none;
   background: white;
-  padding: 5px 194px 5px 5px;
+  padding: 5px 184px 5px 5px;
   margin: 2px 0 0 0;
   font-size: 12px;
   font-weight: bolder;
@@ -61,7 +59,7 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <div css="padding: 10px 0 0; overflow-y: scroll">
+      <div css="padding: 0 0 0; overflow-y: scroll">
         <StyledBackgroundimg>
           <StyledHeadline>
             <br />
@@ -70,7 +68,7 @@ function App() {
             Mosquito
           </StyledHeadline>
           <a href="#booking">
-            <button>Booking</button>
+            <button>Reservieren</button>
           </a>
         </StyledBackgroundimg>
 
@@ -81,6 +79,15 @@ function App() {
             <br />
             <StyledInputName
               placeholder="Nachname, Vorname"
+              type="text"
+              name="name"
+            />
+          </label>
+          <label>
+            Email:
+            <br />
+            <StyledInputName
+              placeholder="Max@google.com"
               type="text"
               name="name"
             />

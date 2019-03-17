@@ -55,12 +55,12 @@ export default function Booking(props) {
 
   const StyledInputDate = styled.input`
     appearance: none;
+    font-family: roboto, sans; 
     border: 1px solid #ddd;
     border-radius: none;
     background: white;
     padding: 4px 10px 4px 5px;
     margin: 5px 0 0 0;
-    font-family: roboto;
     color: dimgrey;
     font-size: 12px;
     font-weight: bolder;

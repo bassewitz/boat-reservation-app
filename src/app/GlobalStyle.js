@@ -8,7 +8,7 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  h1, h2, h4, h5, h6,
+  h1, h4, h5, h6,
   ul, ol {
     margin: 0;
   }
@@ -26,6 +26,9 @@ export default createGlobalStyle`
     margin-top: 20px;
   }
 
+
+
+
   h3 {
     font-family: Roboto, sans-serif;
     font-weight: normal; 
@@ -40,15 +43,16 @@ export default createGlobalStyle`
   }
 
   
-  button {
-    background: white;
+  h2 {
     border: none;
     border-radius: 2px;
-    color: turquoise;
-    font-weight: normal;
-    font-size: 13;
+    color: white;
+    font-family: roboto, sans-serif;
+    font-weight: lighter;
+    font-size: 15px;
     padding: 5px 20px;
-    margin: -80px 0 0px 240px;
+    text-align: left;
+    margin: -440px 0 0px 0px;
     position: absolute;
   
   }
@@ -62,4 +66,17 @@ export default createGlobalStyle`
     padding-left: 4px;
   
   }
+
+  button {
+  background: white;
+  border: none;
+  border-radius: 2px;
+  color: turquoise;
+  font-weight: normal;
+  font-size: 13;
+  padding: 5px 20px;
+  margin: -80px 0 0px 240px;
+  position: absolute;
+
+}
 `

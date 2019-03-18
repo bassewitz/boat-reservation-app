@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import BoatPicture from '../pics/boatyellow.png'
 import Green from '../pics/background-green.png'
 import Booking from '../booking/Booking'
 import GlobalStyle from './GlobalStyle'
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
+import { FaHome } from 'react-icons/fa'
+import { FaCheckCircle } from 'react-icons/fa'
+import CardsPage from '../booking/Card'
+import Yourboats from '../booking/Yourboats'
+import Kanuorange from '../pics/kanuorange.png'
+import Kanublau from '../pics/kanublau.png'
+import Kanulila from '../pics/kanulila.png'
+import Home from '../home/Home'
 
 const StyledHeadline = styled.div`
   margin: -10px 0 0 0px;
@@ -24,10 +33,36 @@ const StyledBackgroundimg = styled.div`
   margin: 0px;
   padding: 0px;
 `
+const Nav = styled.nav`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid white;
+`
+
+const StyledLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: darkturquoise;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+
+  &.active {
+    background: turquoise;
+  }
+`
+
 const StyledForm = styled.form`
   font-family: 'Roboto';
   font-weight: normal;
-  margin-left: 20px ;
+  margin-left: 20px;
 `
 
 const StyledInputBuchen = styled.input`
@@ -40,7 +75,7 @@ const StyledInputBuchen = styled.input`
   font-weight: normal;
   font-size: 13px;
   padding: 5px 145px;
-  margin: 30px  0 150px 0;
+  margin: 30px 0 150px 0;
 `
 
 const StyledInputName = styled.input`
@@ -56,47 +91,67 @@ const StyledInputName = styled.input`
 `
 
 function App() {
+  const [bookingDate, setBookingDate] = useState('')
+  const [boats, setBoats] = useState([
+    {
+      name: 'Max',
+      boatNumber: 'Boot 1',
+      content: 'Test',
+      bookedDates: ['2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05'],
+      image: Kanublau,
+      isSelected: true,
+    },
+    {
+      name: 'Moritz',
+      boatNumber: 'Boot 2',
+      content: 'Test',
+      bookedDates: '2019-03-02',
+      image: Kanulila,
+      isSelected: true,
+    },
+    {
+      name: 'Mosquito',
+      boatNumber: 'Boot 3',
+      content: 'Test',
+      bookedDates: '2019-03-02',
+      image: Kanuorange,
+      isSelected: false,
+    },
+  ])
   return (
-    <React.Fragment>
-      <GlobalStyle />
-      <div css="padding: 0 0 0; overflow-y: scroll">
-        <StyledBackgroundimg>
-          <StyledHeadline>
-            <br />
-            Max <br />
-            Moritz & <br />
-            Mosquito
-          </StyledHeadline>
-          <a href="#booking">
-            <button>Reservieren</button>
-          </a>
-        </StyledBackgroundimg>
+    <Router>
+      <React.Fragment>
+        <GlobalStyle />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Home
+              setBoats={setBoats}
+              bookingDate={bookingDate}
+              setBookingDate={setBookingDate}
+              boats={boats}
+            />
+          )}
+        />
 
-        <Booking />
-        <StyledForm>
-          <label>
-            Name:
-            <br />
-            <StyledInputName
-              placeholder="Nachname, Vorname"
-              type="text"
-              name="name"
-            />
-          </label>
-          <label>
-            Email:
-            <br />
-            <StyledInputName
-              placeholder="Max@google.com"
-              type="text"
-              name="name"
-            />
-          </label>
-          <br />
-          <StyledInputBuchen type="submit" value="Buchen" />
-        </StyledForm>
-      </div>
-    </React.Fragment>
+        <Route
+          exact
+          path="/yourboats"
+          render={() => (
+            <Yourboats boats={boats.filter(boat => boat.isSelected)} />
+          )}
+        />
+        <Nav>
+          <StyledLink to="/">
+            <FaHome />
+          </StyledLink>
+          <StyledLink to="/yourboats">
+            <FaCheckCircle />
+          </StyledLink>
+        </Nav>
+      </React.Fragment>
+    </Router>
   )
 }
 

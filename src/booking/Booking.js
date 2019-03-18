@@ -1,47 +1,45 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Card from './Card'
-import Kanuorange from '../pics/kanuorange.png'
-import Kanublau from '../pics/kanublau.png'
-import Kanulila from '../pics/kanulila.png'
 
-export default function Booking(props) {
-  const [bookingDate, setBookingDate] = useState('')
-  const [boats, setBoats] = useState([
-    {
-      name: 'Max',
-      boatNumber: 'Boot 1',
-      content: 'Test',
-      bookedDates: ['2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05'],
-      image: Kanublau,
-      isSelected: false,
-    },
-    {
-      name: 'Moritz',
-      boatNumber: 'Boot 2',
-      content: 'Test',
-      bookedDates: '2019-03-02',
-      image: Kanulila,
-      isSelected: false,
-    },
-    {
-      name: 'Mosquito',
-      boatNumber: 'Boot 3',
-      content: 'Test',
-      bookedDates: '2019-03-02',
-      image: Kanuorange,
-      isSelected: false,
-    },
-  ])
+export default function Booking({
+  boats,
+  setBoats,
+  bookingDate,
+  setBookingDate,
+}) {
+  // const [bookingDate, setBookingDate] = useState('')
+  // const [boats, setBoats] = useState([
+  //   {
+  //     name: 'Max',
+  //     boatNumber: 'Boot 1',
+  //     content: 'Test',
+  //     bookedDates: ['2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05'],
+  //     image: Kanublau,
+  //     isSelected: false,
+  //   },
+  //   {
+  //     name: 'Moritz',
+  //     boatNumber: 'Boot 2',
+  //     content: 'Test',
+  //     bookedDates: '2019-03-02',
+  //     image: Kanulila,
+  //     isSelected: false,
+  //   },
+  //   {
+  //     name: 'Mosquito',
+  //     boatNumber: 'Boot 3',
+  //     content: 'Test',
+  //     bookedDates: '2019-03-02',
+  //     image: Kanuorange,
+  //     isSelected: false,
+  //   },
+  // ])
 
   const StyledBookingSection = styled.div`
     margin: 50px 0px 50px 18px;
     line-height: 2em;
   `
-
-  const changeDate = e => {
-    setBookingDate(e.target.value)
-  }
 
   const Styledul = styled.div`
     display: grid;
@@ -55,7 +53,7 @@ export default function Booking(props) {
 
   const StyledInputDate = styled.input`
     appearance: none;
-    font-family: roboto, sans; 
+    font-family: roboto, sans;
     border: 1px solid #ddd;
     border-radius: none;
     background: white;
@@ -65,6 +63,10 @@ export default function Booking(props) {
     font-size: 12px;
     font-weight: bolder;
   `
+
+  function changeDate(event) {
+    setBookingDate(event.target.value)
+  }
 
   function onSelection(boat) {
     const index = boats.indexOf(boat)

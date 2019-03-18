@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+// import Card from './Card'
 
 const StyledCard = styled.section`
   padding: 18px 18px 0;
@@ -13,7 +14,6 @@ const StyledCard = styled.section`
   background-position: center;
   position: relative;
   box-shadow: 2px 10px 16px rgba(0, 0, 0, 0.3);
-  border: 3px solid ${p => (p.isSelected ? 'turquoise' : 'none')};
 `
 
 const Bootname = styled.div`
@@ -28,20 +28,21 @@ const Bootinfo = styled.div`
   font-size: 14px;
 `
 
-// function Card({ name, boatNumber, content, image, onSelection, isSelected }) {
-function Card({ name, boatNumber, content, image, onSelection, isSelected }) {
+// function Card({ name, boatNumber, content, image }) {
+function Card({ boats }) {
+  console.log(boats)
   return (
-    <div>
-      <StyledCard
-        style={{ backgroundImage: `url(${image})` }}
-        onClick={onSelection}
-        isSelected={isSelected}
-      >
-        <h4>{boatNumber}</h4>
-        <Bootname>{name}</Bootname>
-        <Bootinfo>{content}</Bootinfo>
-      </StyledCard>
-    </div>
+    <React.Fragment>
+      {boats.map(boat => {
+        return (
+          <StyledCard style={{ backgroundImage: `url(${boat.image})` }}>
+            <h4>{boat.boatNumber}</h4>
+            <Bootname>{boat.name}</Bootname>
+            <Bootinfo>{boat.content}</Bootinfo>
+          </StyledCard>
+        )
+      })}
+    </React.Fragment>
   )
 }
 export default Card

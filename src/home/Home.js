@@ -1,16 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import BoatPicture from '../pics/boatyellow.png'
 import Green from '../pics/background-green.png'
 import Booking from '../booking/Booking'
-// import GlobalStyle from './GlobalStyle'
-// import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
-// import { FaHome } from 'react-icons/fa'
-// import { FaCheckCircle } from 'react-icons/fa'
-// import CardsPage from '../booking/Card'
-// import Kanuorange from '../pics/kanuorange.png'
-// import Kanublau from '../pics/kanublau.png'
-// import Kanulila from '../pics/kanulila.png'
 
 const StyledHeadline = styled.div`
   margin: -10px 0 0 0px;
@@ -41,7 +33,7 @@ const StyledForm = styled.form`
 const StyledInputBuchen = styled.input`
   border: none;
   border-radius: none;
-  background: turquoise;
+  background: darkturquoise;
   padding-left: 4px;
   color: white;
   border-radius: 0px;
@@ -63,7 +55,29 @@ const StyledInputName = styled.input`
   color: dimgrey;
 `
 
-function Home({ boats, setBoats, bookingDate, setBookingDate }) {
+function Home({ boats, setBoats, onSubmit }) {
+  const defaultData = {
+    date: '',
+    name: '',
+    email: '',
+  }
+  const [bookingData, setBookingData] = useState(defaultData)
+
+  function changeHandler(event) {
+    setBookingData({
+      ...bookingData,
+      [event.target.name]: event.target.value,
+    })
+    console.log(bookingData)
+  }
+  function submitHandler(event) {
+    event.preventDefault()
+    onSubmit({ ...bookingData })
+    setBookingData(defaultData)
+  }
+  useEffect(() => {
+    console.log(bookingData, 'USE EFFECT')
+  })
   return (
     <div css="padding: 10px 0 0; overflow-y: scroll">
       <StyledBackgroundimg>
@@ -75,13 +89,14 @@ function Home({ boats, setBoats, bookingDate, setBookingDate }) {
         </StyledHeadline>
 
         <h2>Reserviere ein Boot und erkunde die Alster</h2>
+        <button>Reservieren</button>
       </StyledBackgroundimg>
 
       <Booking
         boats={boats}
         setBoats={setBoats}
-        bookingDate={bookingDate}
-        setBookingDate={setBookingDate}
+        bookingDate={bookingData.date}
+        changeHandler={changeHandler}
       />
       <StyledForm>
         <label>
@@ -91,6 +106,8 @@ function Home({ boats, setBoats, bookingDate, setBookingDate }) {
             placeholder="Nachname, Vorname"
             type="text"
             name="name"
+            value={bookingData.name}
+            onChange={changeHandler}
           />
         </label>
         <label>
@@ -99,11 +116,17 @@ function Home({ boats, setBoats, bookingDate, setBookingDate }) {
           <StyledInputName
             placeholder="Max@google.com"
             type="text"
-            name="name"
+            name="email"
+            value={bookingData.email}
+            onChange={changeHandler}
           />
         </label>
         <br />
-        <StyledInputBuchen type="submit" value="Buchen" />
+        <StyledInputBuchen
+          type="submit"
+          value="Buchen"
+          onSubmit={submitHandler}
+        />
       </StyledForm>
     </div>
   )

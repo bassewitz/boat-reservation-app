@@ -6,36 +6,8 @@ export default function Booking({
   boats,
   setBoats,
   bookingDate,
-  setBookingDate,
+  changeHandler,
 }) {
-  // const [bookingDate, setBookingDate] = useState('')
-  // const [boats, setBoats] = useState([
-  //   {
-  //     name: 'Max',
-  //     boatNumber: 'Boot 1',
-  //     content: 'Test',
-  //     bookedDates: ['2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05'],
-  //     image: Kanublau,
-  //     isSelected: false,
-  //   },
-  //   {
-  //     name: 'Moritz',
-  //     boatNumber: 'Boot 2',
-  //     content: 'Test',
-  //     bookedDates: '2019-03-02',
-  //     image: Kanulila,
-  //     isSelected: false,
-  //   },
-  //   {
-  //     name: 'Mosquito',
-  //     boatNumber: 'Boot 3',
-  //     content: 'Test',
-  //     bookedDates: '2019-03-02',
-  //     image: Kanuorange,
-  //     isSelected: false,
-  //   },
-  // ])
-
   const StyledBookingSection = styled.div`
     margin: 50px 0px 50px 18px;
     line-height: 2em;
@@ -64,10 +36,6 @@ export default function Booking({
     font-weight: bolder;
   `
 
-  function changeDate(event) {
-    setBookingDate(event.target.value)
-  }
-
   function onSelection(boat) {
     const index = boats.indexOf(boat)
     setBoats([
@@ -81,7 +49,12 @@ export default function Booking({
   return (
     <StyledBookingSection id="booking">
       <h3>Wähle ein Datum:</h3>
-      <StyledInputDate type="date" value={bookingDate} onChange={changeDate} />
+      <StyledInputDate
+        type="date"
+        name="date"
+        value={bookingDate}
+        onChange={changeHandler}
+      />
       {bookingDate ? (
         <div>
           <h3>Folgende Boote sind verfügbar:</h3>

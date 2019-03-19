@@ -8,7 +8,7 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  h1, h4, h5, h6,
+  h1,  h5, h6,
   ul, ol {
     margin: 0;
   }
@@ -21,18 +21,25 @@ export default createGlobalStyle`
   label {
     font-family: Roboto, sans-serif;
     font-weight: normal; 
-    color: turquoise;
+    color: darkturquoise;
     font-size: 13px;
     margin-top: 20px;
   }
 
 
+  h4{
+    font-family: Roboto, sans-serif;
+    font-weight: normal; 
+    color: darkturquoise;
+    font-size: 13px;
+    margin: 20px 0 0 0;
 
+  }
 
   h3 {
     font-family: Roboto, sans-serif;
     font-weight: normal; 
-    color: turquoise;
+    color: darkturquoise;
     font-size: 13px;
     margin: 20px 0 -10px 0;
   }
@@ -71,11 +78,11 @@ export default createGlobalStyle`
   background: white;
   border: none;
   border-radius: 2px;
-  color: turquoise;
+  color: darkturquoise;
   font-weight: normal;
   font-size: 13;
   padding: 5px 20px;
-  margin: -80px 0 0px 240px;
+  margin: -400px 0 0px 20px;
   position: absolute;
 
 }

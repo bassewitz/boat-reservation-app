@@ -30,9 +30,9 @@ const Bootinfo = styled.div`
 
 // function Card({ name, boatNumber, content, image }) {
 function Card({ boats }) {
-  console.log(boats)
   return (
     <React.Fragment>
+      <h4>Hallo xxx</h4>
       {boats.map(boat => {
         return (
           <StyledCard style={{ backgroundImage: `url(${boat.image})` }}>

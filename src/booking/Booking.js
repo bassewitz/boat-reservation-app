@@ -78,12 +78,12 @@ export default function Booking({ boats, setBoats, onSubmit }) {
 
   function submitHandler(event) {
     event.preventDefault()
-    onSubmit({ ...bookingData })
+    onSubmit({ bookingData })
     setBookingData(defaultData)
   }
 
   useEffect(() => {
-    console.log(bookingData, 'USE EFFECT')
+    console.log(boats, 'USE EFFECT')
   })
 
   function onSelection(boat) {
@@ -129,7 +129,7 @@ export default function Booking({ boats, setBoats, onSubmit }) {
           </div>
         ) : null}
       </StyledBookingSection>
-      <StyledForm>
+      <StyledForm onSubmit={submitHandler}>
         <label>
           Name:
           <br />
@@ -153,7 +153,7 @@ export default function Booking({ boats, setBoats, onSubmit }) {
           />
         </label>
         <br />
-        <StyledInputBuchen type="submit" value="Buchen" onSubmit={onSubmit} />
+        <StyledInputBuchen type="submit" value="Buchen" />
       </StyledForm>
     </React.Fragment>
   )

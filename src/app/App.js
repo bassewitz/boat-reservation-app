@@ -46,9 +46,6 @@ function App() {
       content: 'Test',
       bookedDates: [
         { date: '2019-03-02', name: 'Steffi', email: 'steffi@gmx.de' },
-        '2019-03-03',
-        '2019-03-04',
-        '2019-03-05',
       ],
       image: Kanublau,
       isSelected: false,
@@ -57,22 +54,47 @@ function App() {
       name: 'Moritz',
       boatNumber: 'Boot 2',
       content: 'Test',
-      bookedDates: '2019-03-02',
+      bookedDates: [
+        { date: '2019-03-05', name: 'Steffi', email: 'steffi@gmx.de' },
+      ],
       image: Kanulila,
-      isSelected: false,
+      isSelected: true,
     },
     {
       name: 'Mosquito',
       boatNumber: 'Boot 3',
       content: 'Test',
-      bookedDates: '2019-03-02',
+      bookedDates: [
+        { date: '2019-03-07', name: 'Steffi', email: 'steffi@gmx.de' },
+      ],
       image: Kanuorange,
       isSelected: false,
     },
   ])
 
-  function handleBooking(bookingData) {
-    setBoats()
+  function handleBooking({ bookingData }) {
+    console.log(bookingData, 'Booking Date')
+    const index = boats.findIndex(boat => boat.isSelected === true)
+    console.log(index)
+    const boat = boats[index]
+    console.log(boat)
+    setBoats([
+      ...boats.slice(0, index),
+      {
+        ...boat,
+        bookedDates: [
+          ...boat.bookedDates,
+          {
+            date: bookingData.date,
+            name: bookingData.name,
+            email: bookingData.email,
+          },
+        ],
+        isSelected: !boat.isSelected,
+      },
+      ...boats.slice(index + 1),
+    ])
+    console.log(boats)
   }
   return (
     <Router>

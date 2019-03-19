@@ -78,16 +78,10 @@ function App() {
     <Router>
       <React.Fragment>
         <GlobalStyle />
+        <Route exact path="/" render={() => <Home />} />
         <Route
           exact
-          path="/"
-          render={() => (
-            <Home setBoats={setBoats} onSubmit={handleBooking} boats={boats} />
-          )}
-        />
-        <Route
-          exact
-          path="/booking"
+          path="/reservieren"
           render={() => (
             <Booking
               setBoats={setBoats}
@@ -96,7 +90,6 @@ function App() {
             />
           )}
         />
-
         <Route
           exact
           path="/yourboats"
@@ -108,7 +101,7 @@ function App() {
           <StyledLink to="/">
             <FaHome />
           </StyledLink>
-          <StyledLink to="/booking">
+          <StyledLink to="/reservieren">
             <FaCalendar />
           </StyledLink>
           <StyledLink to="/yourboats">

@@ -43,7 +43,7 @@ function App() {
     {
       name: 'Max',
       boatNumber: 'Boot 1',
-      content: 'Test',
+      content: '//Kanu für max. 4 Personen //Farbe: blau',
       bookedDates: [
         { date: '2019-03-02', name: 'Steffi', email: 'steffi@gmx.de' },
       ],
@@ -53,7 +53,7 @@ function App() {
     {
       name: 'Moritz',
       boatNumber: 'Boot 2',
-      content: 'Test',
+      content: '//Kanu für max. 5 Personen //Farbe: grün',
       bookedDates: [
         { date: '2019-03-05', name: 'Steffi', email: 'steffi@gmx.de' },
       ],
@@ -63,7 +63,7 @@ function App() {
     {
       name: 'Mosquito',
       boatNumber: 'Boot 3',
-      content: 'Test',
+      content: '//Kanu für max. 4 Personen //Farbe: gelb',
       bookedDates: [
         { date: '2019-03-07', name: 'Steffi', email: 'steffi@gmx.de' },
       ],

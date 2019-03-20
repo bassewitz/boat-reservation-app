@@ -70,7 +70,7 @@ export default createGlobalStyle`
     color: darkturquoise;
     font-size: 15px;
     margin: 15px 0 0 0;
-    padding:20px 0 0 20px
+    padding:20px 0 0 20px;
   }
 
   input {
@@ -89,7 +89,7 @@ export default createGlobalStyle`
   color: darkturquoise;
   font-weight: normal;
   font-size: 13;
-  padding: 5px 20px;
+  padding: 5px 30px 5px 20px;;
   margin: -400px 0 0px 20px;
   position: absolute;
 

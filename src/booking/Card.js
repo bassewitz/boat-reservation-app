@@ -39,6 +39,7 @@ const Bootname = styled.div`
 const Bootinfo = styled.div`
   color: white;
   font-size: 14px;
+  line-height: 1.2;
 `
 
 // function Card({ name, boatNumber, content, image, onSelection, isSelected }) {

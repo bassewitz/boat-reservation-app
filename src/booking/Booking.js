@@ -36,6 +36,7 @@ const StyledForm = styled.form`
 `
 
 const StyledInputBuchen = styled.input`
+  display: grid;
   border: none;
   border-radius: none;
   background: darkturquoise;
@@ -141,6 +142,7 @@ export default function Booking({ boats, setBoats, onSubmit }) {
             onChange={changeHandler}
           />
         </label>
+        <br />
         <label>
           Email:
           <br />

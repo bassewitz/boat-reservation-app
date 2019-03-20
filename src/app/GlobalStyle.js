@@ -8,29 +8,29 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  h1,  h5, h6,
+  h1, h6,
   ul, ol {
     margin: 0;
   }
-  h4{
-    font-weight: normal; 
-    letter-spacing: 2px;
-    color: white;
-  }
+
+   
 
   label {
     font-family: Roboto, sans-serif;
     font-weight: normal; 
     color: darkturquoise;
     font-size: 13px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
 
   h4{
+    font-weight: normal; 
+    letter-spacing: 2px;
+    color: pink;
     font-family: Roboto, sans-serif;
     font-weight: normal; 
-    color: darkturquoise;
+    color: white;
     font-size: 13px;
     margin: 20px 0 0 0;
 
@@ -41,7 +41,7 @@ export default createGlobalStyle`
     font-weight: normal; 
     color: darkturquoise;
     font-size: 13px;
-    margin: 20px 0 -10px 0;
+    margin: 15px 0 -10px 0;
   }
   
   p{
@@ -64,6 +64,14 @@ export default createGlobalStyle`
   
   }
 
+  h5 {
+    font-family: Roboto, sans-serif;
+    font-weight: normal; 
+    color: darkturquoise;
+    font-size: 15px;
+    margin: 15px 0 0 0;
+    padding:20px 0 0 20px
+  }
 
   input {
     background: white;

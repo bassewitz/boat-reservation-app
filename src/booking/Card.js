@@ -13,7 +13,20 @@ const StyledCard = styled.section`
   background-position: center;
   position: relative;
   box-shadow: 2px 10px 16px rgba(0, 0, 0, 0.3);
-  border: 3px solid ${p => (p.isSelected ? 'turquoise' : 'none')};
+`
+const Bookmark = styled.div`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 130px 230px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  opacity: 0.5;
+  position: absolute;
+  transition: all 0.4s ease;
+  bottom: 0;
+  right: 0;
 `
 
 const Bootname = styled.div`
@@ -37,6 +50,9 @@ function Card({ name, boatNumber, content, image, onSelection, isSelected }) {
         onClick={onSelection}
         isSelected={isSelected}
       >
+        <Bookmark
+          style={{ borderBottomColor: isSelected ? 'white' : 'transparent' }}
+        />
         <h4>{boatNumber}</h4>
         <Bootname>{name}</Bootname>
         <Bootinfo>{content}</Bootinfo>

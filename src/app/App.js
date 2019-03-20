@@ -58,7 +58,7 @@ function App() {
         { date: '2019-03-05', name: 'Steffi', email: 'steffi@gmx.de' },
       ],
       image: Kanulila,
-      isSelected: true,
+      isSelected: false,
     },
     {
       name: 'Mosquito',

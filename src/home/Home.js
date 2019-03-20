@@ -22,6 +22,21 @@ const StyledBackgroundimg = styled.div`
   margin: 0px;
   padding: 0px;
 `
+const styledTriangle = styled.div`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 530px 230px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: white;
+  opacity: 0.5;
+  position: absolute;
+  transition: all 0.4s ease;
+  bottom: 0;
+  right: 0;
+`
 
 function Home({ boats, setBoats, onSubmit }) {
   return (
@@ -33,7 +48,6 @@ function Home({ boats, setBoats, onSubmit }) {
           Moritz & <br />
           Mosquito
         </StyledHeadline>
-
         <h2>Reserviere ein Boot und erkunde die Alster</h2>
         <button>Reservieren</button>
       </StyledBackgroundimg>

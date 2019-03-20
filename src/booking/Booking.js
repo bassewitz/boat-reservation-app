@@ -45,7 +45,7 @@ const StyledInputBuchen = styled.input`
   font-weight: normal;
   font-size: 13px;
   padding: 5px 145px;
-  margin: 30px 0 150px 0;
+  margin: 20px 0 15px 0;
 `
 
 const StyledInputName = styled.input`

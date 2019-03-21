@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Card from './Card'
+import Logogruen from '../pics/logogruen.svg'
+
+const StyledBackgroundlogo = styled.div`
+  background-image: url(${Logogruen});
+  background-repeat: no-repeat;
+  background-position: top right;
+`
 
 const StyledBookingSection = styled.div`
   margin: 50px 0px 50px 18px;
@@ -100,6 +107,7 @@ export default function Booking({ boats, setBoats, onSubmit }) {
   return (
     <React.Fragment>
       <StyledBookingSection id="booking">
+        <StyledBackgroundlogo> </StyledBackgroundlogo>
         <h3>Wähle ein Datum:</h3>
         <StyledInputDate
           type="date"

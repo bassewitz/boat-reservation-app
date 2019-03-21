@@ -8,7 +8,7 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  h1, h6,
+  h1,
   ul, ol {
     margin: 0;
   }
@@ -72,6 +72,14 @@ export default createGlobalStyle`
     margin: 15px 0 0 0;
     padding:20px 0 0 20px;
   }
+  
+  h6{
+    font-family: Roboto, sans-serif;
+    font-weight: bolder; 
+    color: dimgray;
+    font-size: 22px;
+    margin: -30px 0 0 250px;
+  }
 
   input {
     background: white;
@@ -83,14 +91,14 @@ export default createGlobalStyle`
   }
 
   button {
-  background: white;
+  background: darkturquoise;
   border: none;
   border-radius: 2px;
-  color: darkturquoise;
+  color: white;
   font-weight: normal;
   font-size: 13;
   padding: 5px 30px 5px 20px;;
-  margin: -400px 0 0px 20px;
+  margin: -100px 0 0px 240px;
   position: absolute;
 
 }

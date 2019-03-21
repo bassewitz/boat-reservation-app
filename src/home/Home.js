@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import BoatPicture from '../pics/boatyellow.png'
 import Green from '../pics/background-green.png'
+import Logoweiss from '../pics/logoweiss.svg'
 import { FaAngleDoubleRight } from 'react-icons/fa'
 
 const StyledHeadline = styled.div`
@@ -17,30 +18,18 @@ const StyledHeadline = styled.div`
   height: 100vh;
 `
 const StyledBackgroundimg = styled.div`
-  background-image: url(${Green}), url(${BoatPicture});
-  background-repeat: no-repeat, no-repeat;
-  background-position: top left, bottom left;
-  margin: 0px;
-  padding: 0px;
+  background-image: url(${Logoweiss}), url(${Green}), url(${BoatPicture});
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: top right, top left, bottom left;
+  height: 20%;
+  width: 100%;
+  height: auto;
+  padding: 20px, 0, 0;
 `
-const Triangle = styled.div`
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 415px 655px;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: white;
-  opacity: 0.7;
-  position: absolute;
-  transition: all 0.4s ease;
-  bottom: 0;
-  right: 0;
-`
+
 const Arrow = styled.span`
   font-size: 15px;
-  color: darkturquoise;
+  color: white;
   font-weight: normal;
   position: absolute;
 `
@@ -49,7 +38,6 @@ function Home({ boats, setBoats, onSubmit }) {
   return (
     <div css="padding: 10px 0 0; overflow-y: scroll">
       <StyledBackgroundimg>
-        <Triangle />
         <StyledHeadline>
           <br />
           Max <br />
@@ -57,7 +45,8 @@ function Home({ boats, setBoats, onSubmit }) {
           Mosquito
         </StyledHeadline>
         <h2>Suche dir ein Boot aus und erkunde die Alster</h2>
-        <button>
+
+        <button to="/reservieren">
           Reservieren
           <Arrow>
             <FaAngleDoubleRight />

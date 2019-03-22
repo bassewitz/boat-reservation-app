@@ -96,10 +96,9 @@ export default createGlobalStyle`
   border-radius: 2px;
   color: white;
   font-weight: normal;
-  font-size: 13;
+  font-size: 13px;
   padding: 5px 30px 5px 20px;;
   margin: -100px 0 0px 240px;
   position: absolute;
-
 }
 `

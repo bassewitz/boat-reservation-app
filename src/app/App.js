@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import GlobalStyle from './GlobalStyle'
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
@@ -55,7 +55,7 @@ function App() {
       boatNumber: 'Boot 2',
       content: '//Kanu für max. 5 Personen //Farbe: grün',
       bookedDates: [
-        { date: '2019-03-05', name: 'Steffi', email: 'steffi@gmx.de' },
+        { date: '2019-03-05', name: 'Axel', email: 'steffi@gmx.de' },
       ],
       image: Kanulila,
       isSelected: false,
@@ -73,11 +73,8 @@ function App() {
   ])
 
   function handleBooking({ bookingData }) {
-    console.log(bookingData, 'Booking Date')
     const index = boats.findIndex(boat => boat.isSelected === true)
-    console.log(index)
     const boat = boats[index]
-    console.log(boat)
     setBoats([
       ...boats.slice(0, index),
       {
@@ -94,8 +91,14 @@ function App() {
       },
       ...boats.slice(index + 1),
     ])
-    console.log(boats)
+    saveToStorage('bookingData', bookingData)
   }
+  function saveToStorage(name, data) {
+    const dataString = JSON.stringify(data)
+    localStorage.setItem(name, dataString)
+  }
+
+  useEffect(() => console.log(boats))
   return (
     <Router>
       <React.Fragment>
@@ -104,8 +107,9 @@ function App() {
         <Route
           exact
           path="/reservieren"
-          render={() => (
+          render={({ history }) => (
             <Booking
+              history={history}
               setBoats={setBoats}
               onSubmit={handleBooking}
               boats={boats}
@@ -115,9 +119,7 @@ function App() {
         <Route
           exact
           path="/yourboats"
-          render={() => (
-            <Yourboats boats={boats.filter(boat => boat.isSelected)} />
-          )}
+          render={() => <Yourboats boats={boats} />}
         />
         <Nav>
           <StyledLink to="/">

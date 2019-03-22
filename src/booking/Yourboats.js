@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Logogruen from '../pics/logogruen.svg'
+
+const Styledlogo = styled.img`
+  margin: 20px 0px 0 242px;
+`
 
 const Styledul = styled.div`
   display: grid;
@@ -52,23 +57,37 @@ const Bootinfo = styled.div`
   font-size: 14px;
 `
 function Card({ boats }) {
+  const [bookingData, setBookingData] = useState('')
+
+  useEffect(() => {
+    setBookingData(JSON.parse(localStorage.getItem('bookingData')))
+    console.log(bookingData)
+  }, [])
+
   return (
     <React.Fragment>
+      <Styledlogo src={Logogruen} alt="Logo" />
       <h5>
-        Hallo xxx <br />
-        Folgende Boote hast am xxx reserviert:
+        Hallo {bookingData.name} <br />
+        Folgende Boote hast Du am {bookingData.date} reserviert:
       </h5>
       <Styledul>
-        {boats.map(boat => {
-          return (
-            <StyledCard style={{ backgroundImage: `url(${boat.image})` }}>
-              <Bookmarked />
-              <h4>{boat.boatNumber}</h4>
-              <Bootname>{boat.name}</Bootname>
-              <Bootinfo>{boat.content}</Bootinfo>
-            </StyledCard>
-          )
-        })}
+        {boats
+          .filter(boat => {
+            return boat.bookedDates.some(date => {
+              return date.email.includes(bookingData.email)
+            })
+          })
+          .map(boat => {
+            return (
+              <StyledCard style={{ backgroundImage: `url(${boat.image})` }}>
+                <Bookmarked />
+                <h4>{boat.boatNumber}</h4>
+                <Bootname>{boat.name}</Bootname>
+                <Bootinfo>{boat.content}</Bootinfo>
+              </StyledCard>
+            )
+          })}
       </Styledul>
     </React.Fragment>
   )

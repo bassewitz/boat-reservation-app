@@ -4,6 +4,11 @@ import BoatPicture from '../pics/boatyellow.png'
 import Green from '../pics/background-green.png'
 import Logoweiss from '../pics/logoweiss.svg'
 import { FaAngleDoubleRight } from 'react-icons/fa'
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
+
+const Styledlogo = styled.img`
+  margin: 10px 0px 0 242px;
+`
 
 const StyledHeadline = styled.div`
   margin: -10px 0 0 0px;
@@ -18,25 +23,26 @@ const StyledHeadline = styled.div`
   height: 100vh;
 `
 const StyledBackgroundimg = styled.div`
-  background-image: url(${Logoweiss}), url(${Green}), url(${BoatPicture});
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: top right, top left, bottom left;
-  height: 20%;
+  background-image: url(${Green}), url(${BoatPicture});
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, bottom left;
+  margin: -50px 0 0 0;
+  height: 100%;
   width: 100%;
-  height: auto;
-  padding: 20px, 0, 0;
 `
 
-const Arrow = styled.span`
+const StyledArrow = styled.span`
   font-size: 15px;
   color: white;
   font-weight: normal;
   position: absolute;
+  margin: 0 0 0px 10px;
 `
 
 function Home({ boats, setBoats, onSubmit }) {
   return (
     <div css="padding: 10px 0 0; overflow-y: scroll">
+      <Styledlogo src={Logoweiss} alt="Logo" />
       <StyledBackgroundimg>
         <StyledHeadline>
           <br />
@@ -45,13 +51,14 @@ function Home({ boats, setBoats, onSubmit }) {
           Mosquito
         </StyledHeadline>
         <h2>Suche dir ein Boot aus und erkunde die Alster</h2>
-
-        <button to="/reservieren">
-          Reservieren
-          <Arrow>
-            <FaAngleDoubleRight />
-          </Arrow>
-        </button>
+        <NavLink to="/reservieren">
+          <button>
+            Reservieren
+            <StyledArrow>
+              <FaAngleDoubleRight />
+            </StyledArrow>
+          </button>
+        </NavLink>
       </StyledBackgroundimg>
     </div>
   )

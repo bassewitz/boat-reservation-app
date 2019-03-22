@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import Card from './Card'
 import Logogruen from '../pics/logogruen.svg'
 
-const StyledBackgroundlogo = styled.div`
-  background-image: url(${Logogruen});
-  background-repeat: no-repeat;
-  background-position: top right;
+const Styledlogo = styled.img`
+  margin: 20px 0px 0 242px;
 `
 
 const StyledBookingSection = styled.div`
-  margin: 50px 0px 50px 18px;
+  margin: 0px 0px 30px 18px;
   line-height: 2em;
 `
 
@@ -68,9 +66,9 @@ const StyledInputName = styled.input`
   color: dimgrey;
 `
 
-export default function Booking({ boats, setBoats, onSubmit }) {
+export default function Booking({ boats, setBoats, onSubmit, history }) {
   const defaultData = {
-    date: '',
+    date: '2019-01-01',
     name: '',
     email: '',
   }
@@ -88,11 +86,8 @@ export default function Booking({ boats, setBoats, onSubmit }) {
     event.preventDefault()
     onSubmit({ bookingData })
     setBookingData(defaultData)
+    history.push('/yourboats')
   }
-
-  useEffect(() => {
-    console.log(boats, 'USE EFFECT')
-  })
 
   function onSelection(boat) {
     const index = boats.indexOf(boat)
@@ -106,8 +101,8 @@ export default function Booking({ boats, setBoats, onSubmit }) {
 
   return (
     <React.Fragment>
+      <Styledlogo src={Logogruen} alt="Logo" />
       <StyledBookingSection id="booking">
-        <StyledBackgroundlogo> </StyledBackgroundlogo>
         <h3>Wähle ein Datum:</h3>
         <StyledInputDate
           type="date"

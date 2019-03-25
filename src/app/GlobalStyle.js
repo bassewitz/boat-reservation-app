@@ -21,7 +21,14 @@ export default createGlobalStyle`
     color: darkturquoise;
     font-size: 13px;
     margin-top: 10px;
-  }
+    width: 335px;
+    @media (min-width: 400px) {
+   display: flex; 
+  justify-content: center; 
+  flex-direction: column;
+  margin: auto;
+
+  }}
 
 
   h4{
@@ -41,7 +48,11 @@ export default createGlobalStyle`
     font-weight: normal; 
     color: darkturquoise;
     font-size: 13px;
-    margin: 15px 0 -10px 0;
+    margin: 40px 0 -10px 0;
+    @media (min-width: 400px) {
+   display: flex;   
+   justify-content: center; 
+  }
   }
   
   p{
@@ -69,7 +80,7 @@ export default createGlobalStyle`
     font-weight: normal; 
     color: darkturquoise;
     font-size: 15px;
-    margin: 15px 0 0 0;
+    margin: 40px 0 0 0;
     padding:20px 0 0 20px;
   }
   
@@ -100,5 +111,6 @@ export default createGlobalStyle`
   padding: 5px 30px 5px 20px;;
   margin: -100px 0 0px 240px;
   position: absolute;
+ 
 }
 `

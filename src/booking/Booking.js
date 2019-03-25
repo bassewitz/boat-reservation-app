@@ -4,12 +4,18 @@ import Card from './Card'
 import Logogruen from '../pics/logogruen.svg'
 
 const Styledlogo = styled.img`
-  margin: 20px 0px 0 242px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px 20px 0 0;
 `
 
 const StyledBookingSection = styled.div`
   margin: 0px 0px 30px 18px;
   line-height: 2em;
+  @media (min-width: 400px) {
+    justify-content: center;
+  }
 `
 
 const Styledul = styled.div`
@@ -23,16 +29,21 @@ const Styledul = styled.div`
 `
 
 const StyledInputDate = styled.input`
-  appearance: none;
   font-family: roboto, sans;
   border: 1px solid #ddd;
   border-radius: none;
   background: white;
-  padding: 4px 10px 4px 5px;
   margin: 5px 0 0 0;
+  padding: 4px 10px 4px 5px;
   color: dimgrey;
   font-size: 12px;
   font-weight: bolder;
+  @media (min-width: 400px) {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5px;
+  }
 `
 const StyledForm = styled.form`
   font-family: 'Roboto';
@@ -41,17 +52,19 @@ const StyledForm = styled.form`
 `
 
 const StyledInputBuchen = styled.input`
-  display: grid;
-  border: none;
   border-radius: none;
   background: darkturquoise;
-  padding-left: 4px;
   color: white;
-  border-radius: 0px;
   font-weight: normal;
   font-size: 13px;
   padding: 5px 145px;
   margin: 20px 0 15px 0;
+  @media (min-width: 400px) {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+  }
 `
 
 const StyledInputName = styled.input`
@@ -68,7 +81,7 @@ const StyledInputName = styled.input`
 
 export default function Booking({ boats, setBoats, onSubmit, history }) {
   const defaultData = {
-    date: '2019-01-01',
+    date: '2019-03-01',
     name: '',
     email: '',
   }
@@ -138,7 +151,7 @@ export default function Booking({ boats, setBoats, onSubmit, history }) {
           Name:
           <br />
           <StyledInputName
-            placeholder="Nachname, Vorname"
+            placeholder="Vorname Nachname"
             type="text"
             name="name"
             value={bookingData.name}

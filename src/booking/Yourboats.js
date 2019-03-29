@@ -36,7 +36,7 @@ const Bookmarked = styled.div`
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 0 130px 230px;
+  border-width: 0 0 120px 247px;
   border-top-color: transparent;
   border-right-color: transparent;
   border-left-color: transparent;
@@ -71,8 +71,9 @@ function Card({ boats }) {
     <React.Fragment>
       <Styledlogo src={Logogruen} alt="Logo" />
       <h5>
-        Hallo {bookingData.name} <br />
-        Folgende Boote hast Du am {bookingData.date} reserviert:
+        Hallo {bookingData.name},
+        <br />
+        folgende Boote hast Du am {bookingData.date} reserviert:
       </h5>
       <Styledul>
         {boats

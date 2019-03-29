@@ -6,6 +6,9 @@ export default createGlobalStyle`
   body {
     font-family: Roboto, sans-serif;
     margin: 0;
+    box-sizing: content-box;
+width: 100%;
+height:100%;
   }
 
   h1,
@@ -70,8 +73,10 @@ export default createGlobalStyle`
     font-size: 15px;
     padding: 5px 20px;
     text-align: left;
-    margin: -440px 0 0px 0px;
+    top: 0;
+    margin: 280px 0 0px 0px;
     position: absolute;
+    
   
   }
 
@@ -109,8 +114,10 @@ export default createGlobalStyle`
   font-weight: normal;
   font-size: 13px;
   padding: 5px 30px 5px 20px;;
-  margin: -100px 0 0px 240px;
   position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 25px 80px 0;
  
 }
 `

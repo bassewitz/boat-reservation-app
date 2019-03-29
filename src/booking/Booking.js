@@ -81,7 +81,7 @@ const StyledInputName = styled.input`
 
 export default function Booking({ boats, setBoats, onSubmit, history }) {
   const defaultData = {
-    date: '2019-03-01',
+    date: '2019-04-01',
     name: '',
     email: '',
   }

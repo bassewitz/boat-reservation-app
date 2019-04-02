@@ -11,7 +11,15 @@ width: 100%;
 height:100%;
   }
 
-  h1,
+  h1 {
+    font-family: Roboto, sans-serif;
+    font-weight: normal; 
+    color: white;
+    font-weight: bold; 
+    margin:0px 50px 0 20px;
+    padding: 50px 0 0 0;
+    font-size: 30px;
+  }
   ul, ol {
     margin: 0;
   }
@@ -105,19 +113,4 @@ height:100%;
     padding-left: 4px;
   
   }
-
-  button {
-  background: darkturquoise;
-  border: none;
-  border-radius: 2px;
-  color: white;
-  font-weight: normal;
-  font-size: 13px;
-  padding: 5px 30px 5px 20px;;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 25px 80px 0;
- 
-}
 `

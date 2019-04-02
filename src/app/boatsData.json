@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Max",
+    "boatNumber": "Boot 1",
+    "content": "//Kanu für max. 4 Personen //Farbe: blau",
+    "bookedDates": [
+      { "date": "2019-03-02", "name": "Steffi", "email": "steffi@gmx.de" }
+    ],
+    "image": "/static/media/kanublau.a3b8d3aa.png"
+  },
+  {
+    "name": "Moritz",
+    "boatNumber": "Boot 2",
+    "content": "//Kanu für max. 5 Personen //Farbe: grün",
+    "bookedDates": [
+      { "date": "2019-03-05", "name": "Axel", "email": "steffi@gmx.de" }
+    ],
+    "image": "/static/media/kanulila.559d8115.png"
+  },
+  {
+    "name": "Mosquito",
+    "boatNumber": "Boot 3",
+    "content": "//Kanu für max. 4 Personen //Farbe: gelb",
+    "bookedDates": [
+      { "date": "2019-03-07", "name": "Steffi", "email": "steffi@gmx.de" }
+    ],
+    "image": "/static/media/kanuorange.ef13eea2.png"
+  }
+]

@@ -81,35 +81,47 @@ const StyledInputName = styled.input`
 
 export default function Booking({ boats, setBoats, onSubmit, history }) {
   const defaultData = {
-    date: '2019-04-01',
+    date: '2019-03-02',
     name: '',
     email: '',
   }
-  const [bookingData, setBookingData] = useState(defaultData)
 
-  function changeHandler(event) {
+  const [bookingData, setBookingData] = useState(defaultData)
+  useEffect(() => {
+    console.log(bookingData)
+  }, [bookingData])
+
+  function onInputChange(e) {
     setBookingData({
       ...bookingData,
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     })
-    console.log(bookingData)
   }
 
-  function submitHandler(event) {
-    event.preventDefault()
-    onSubmit({ bookingData })
-    setBookingData(defaultData)
-    history.push('/yourboats')
-  }
+  function onCardClick(number) {
+    const index = boats.findIndex(boat => boat.boatNumber === number)
+    const boat = boats[index]
 
-  function onSelection(boat) {
-    const index = boats.indexOf(boat)
-    setBoats([
-      ...boats.slice(0, index),
-      { ...boat, isSelected: !boat.isSelected },
-      ...boats.slice(index + 1),
-    ])
-    console.log(boats)
+    localStorage.setItem(
+      'boats',
+      JSON.stringify([
+        ...boats.slice(0, index),
+        {
+          ...boat,
+          bookedDates: [
+            ...boat.bookedDates,
+            {
+              date: bookingData.date,
+              name: bookingData.name,
+              email: bookingData.email,
+            },
+          ],
+        },
+        ...boats.slice(index + 1),
+      ])
+    )
+
+    setBoats(JSON.parse(localStorage.getItem('boats')))
   }
 
   return (
@@ -121,32 +133,8 @@ export default function Booking({ boats, setBoats, onSubmit, history }) {
           type="date"
           name="date"
           value={bookingData.date}
-          onChange={changeHandler}
+          onChange={onInputChange}
         />
-        {bookingData.date ? (
-          <div>
-            <h3>Folgende Boote sind verfügbar:</h3>
-            <Styledul>
-              {boats
-                .filter(boat => !boat.bookedDates.includes(bookingData.date))
-                .map(boat => {
-                  return (
-                    <Card
-                      onSelection={() => onSelection(boat)}
-                      key={boat.name}
-                      name={boat.name}
-                      boatNumber={boat.boatNumber}
-                      content={boat.content}
-                      image={boat.image}
-                      isSelected={boat.isSelected}
-                    />
-                  )
-                })}
-            </Styledul>
-          </div>
-        ) : null}
-      </StyledBookingSection>
-      <StyledForm onSubmit={submitHandler}>
         <label>
           Name:
           <br />
@@ -155,7 +143,7 @@ export default function Booking({ boats, setBoats, onSubmit, history }) {
             type="text"
             name="name"
             value={bookingData.name}
-            onChange={changeHandler}
+            onChange={onInputChange}
           />
         </label>
         <br />
@@ -167,12 +155,40 @@ export default function Booking({ boats, setBoats, onSubmit, history }) {
             type="text"
             name="email"
             value={bookingData.email}
-            onChange={changeHandler}
+            onChange={onInputChange}
           />
         </label>
         <br />
-        <StyledInputBuchen type="submit" value="Buchen" />
-      </StyledForm>
+        {bookingData.date ? (
+          <div>
+            <h3>Folgende Boote sind verfügbar:</h3>
+            <Styledul>
+              {boats
+                .filter(boat => {
+                  return boat.bookedDates.some(date => {
+                    return date.date !== bookingData.date
+                  })
+                })
+                .map(boat => {
+                  return (
+                    <Card
+                      setBoats={setBoats}
+                      onCardClick={onCardClick}
+                      // onSelection={() => onSelection(boat)}
+                      boat={boat}
+                      // key={boat.name}
+                      // name={boat.name}
+                      // boatNumber={boat.boatNumber}
+                      // content={boat.content}
+                      // image={boat.image}
+                      // isSelected={boat.isSelected}
+                    />
+                  )
+                })}
+            </Styledul>
+          </div>
+        ) : null}
+      </StyledBookingSection>
     </React.Fragment>
   )
 }

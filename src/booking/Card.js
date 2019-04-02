@@ -43,20 +43,36 @@ const Bootinfo = styled.div`
 `
 
 // function Card({ name, boatNumber, content, image, onSelection, isSelected }) {
-function Card({ name, boatNumber, content, image, onSelection, isSelected }) {
+function Card({
+  name,
+  boatNumber,
+  setBoats,
+  content,
+  image,
+  onSelection,
+  isSelected,
+  onCardClick,
+  boat,
+  username,
+}) {
   return (
     <div>
       <StyledCard
-        style={{ backgroundImage: `url(${image})` }}
-        onClick={onSelection}
+        style={{ backgroundImage: `url(${boat.image})` }}
+        onClick={() => onCardClick(boat.boatNumber)}
         isSelected={isSelected}
       >
         <Bookmark
           style={{ borderBottomColor: isSelected ? 'white' : 'transparent' }}
         />
-        <h4>{boatNumber}</h4>
-        <Bootname>{name}</Bootname>
-        <Bootinfo>{content}</Bootinfo>
+        <h4>{boat.boatNumber}</h4>
+        <Bootname>{boat.name}</Bootname>
+        <Bootinfo>{boat.content}</Bootinfo>
+        {boat.bookedDates.map(bookedDate => {
+          if (bookedDate.name === username) {
+            return <Bootinfo>GEBUCHT!!!!</Bootinfo>
+          }
+        })}
       </StyledCard>
     </div>
   )

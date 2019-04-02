@@ -12,6 +12,8 @@ import Kanulila from '../pics/kanulila.png'
 import Home from '../home/Home'
 import Booking from '../booking/Booking'
 
+import boatsData from './boatsData.json'
+
 const Nav = styled.nav`
   display: grid;
   grid-auto-flow: column;
@@ -39,66 +41,29 @@ const StyledLink = styled(NavLink)`
 `
 
 function App() {
-  const [boats, setBoats] = useState([
-    {
-      name: 'Max',
-      boatNumber: 'Boot 1',
-      content: '//Kanu für max. 4 Personen //Farbe: blau',
-      bookedDates: [
-        { date: '2019-03-02', name: 'Steffi', email: 'steffi@gmx.de' },
-      ],
-      image: Kanublau,
-      isSelected: false,
-    },
-    {
-      name: 'Moritz',
-      boatNumber: 'Boot 2',
-      content: '//Kanu für max. 5 Personen //Farbe: grün',
-      bookedDates: [
-        { date: '2019-03-05', name: 'Axel', email: 'steffi@gmx.de' },
-      ],
-      image: Kanulila,
-      isSelected: false,
-    },
-    {
-      name: 'Mosquito',
-      boatNumber: 'Boot 3',
-      content: '//Kanu für max. 4 Personen //Farbe: gelb',
-      bookedDates: [
-        { date: '2019-03-07', name: 'Steffi', email: 'steffi@gmx.de' },
-      ],
-      image: Kanuorange,
-      isSelected: false,
-    },
-  ])
+  const [boats, setBoats] = useState([])
+  const [username, setUsername] = useState('')
 
-  function handleBooking({ bookingData }) {
-    const index = boats.findIndex(boat => boat.isSelected === true)
-    const boat = boats[index]
-    setBoats([
-      ...boats.slice(0, index),
-      {
-        ...boat,
-        bookedDates: [
-          ...boat.bookedDates,
-          {
-            date: bookingData.date,
-            name: bookingData.name,
-            email: bookingData.email,
-          },
-        ],
-        isSelected: !boat.isSelected,
-      },
-      ...boats.slice(index + 1),
-    ])
-    saveToStorage('bookingData', bookingData)
-  }
-  function saveToStorage(name, data) {
-    const dataString = JSON.stringify(data)
-    localStorage.setItem(name, dataString)
-  }
+  useEffect(() => {
+    if (localStorage.boats) {
+      setBoats(JSON.parse(localStorage.getItem('boats')))
+    } else {
+      localStorage.setItem('boats', JSON.stringify(boatsData))
+      setBoats(JSON.parse(localStorage.getItem('boats')))
+    }
+  }, [])
 
-  useEffect(() => console.log(boats))
+  // function handleBooking({ bookingData }) {
+  //   alert('bookingData')
+  //   const index = boats.findIndex(boat => boat.isSelected === true)
+  //   console.log(index)
+  //   const boat = boats[index]
+
+  // function saveToStorage(name, data) {
+  //   const dataString = JSON.stringify(data)
+  //   localStorage.setItem(name, dataString)
+  // }
+
   return (
     <Router>
       <React.Fragment>
@@ -108,12 +73,7 @@ function App() {
           exact
           path="/reservieren"
           render={({ history }) => (
-            <Booking
-              history={history}
-              setBoats={setBoats}
-              onSubmit={handleBooking}
-              boats={boats}
-            />
+            <Booking history={history} setBoats={setBoats} boats={boats} />
           )}
         />
         <Route

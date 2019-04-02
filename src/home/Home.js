@@ -42,6 +42,19 @@ const StyledArrow = styled.span`
   position: absolute;
   margin: 0 0 0px 10px;
 `
+const StyledButtonReservieren = styled.button`
+  background: darkturquoise;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 5px 30px 5px 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 25px 80px 0;
+`
 
 function Home({ boats, setBoats, onSubmit }) {
   return (
@@ -56,12 +69,12 @@ function Home({ boats, setBoats, onSubmit }) {
         </StyledHeadline>
         <h2>Suche Dir ein Boot aus und erkunde die Alster</h2>
         <NavLink to="/reservieren">
-          <button>
+          <StyledButtonReservieren>
             Reservieren
             <StyledArrow>
               <FaAngleDoubleRight />
             </StyledArrow>
-          </button>
+          </StyledButtonReservieren>
         </NavLink>
       </StyledBackgroundimg>
     </div>
